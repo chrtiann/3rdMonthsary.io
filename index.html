@@ -2,163 +2,902 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3rd Monthsary 💕</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fbf6ef">
+    <meta name="description" content="A love letter and a hand-drawn bouquet for five months of love.">
+    <title>Happy 5 Months of Love</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        :root {
+            color-scheme: light;
+            --paper: #fbf6ef;
+            --ink: #362c32;
+            --muted: #786b70;
+            --berry: #8e3c5a;
+            --berry-dark: #693047;
+            --plum: #573c69;
+            --leaf: #526c4c;
+            --line: #e9ddd3;
+            --white: #fffdfa;
+            --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+            --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 25%, #e1f5fe 50%, #f3e5f5 75%, #fce4ec 100%);
+            min-width: 320px;
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            width: min(1120px, calc(100% - 64px));
+            margin-inline: auto;
+        }
+
+        .topbar {
+            display: flex;
+            min-height: 88px;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .wordmark {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            color: var(--berry-dark);
+            font-family: var(--serif);
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .wordmark-flower {
+            font-size: 23px;
+        }
+
+        .topbar-note {
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .hero {
+            display: grid;
+            min-height: 660px;
+            grid-template-columns: 0.95fr 1.05fr;
+            align-items: center;
+            gap: 32px;
+            padding-block: 44px 72px;
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+            padding-block: 24px;
+        }
+
+        .eyebrow {
             display: flex;
             align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            gap: 11px;
+            margin: 0 0 23px;
+            color: var(--berry);
+            font-size: 11px;
+            font-weight: 650;
+            letter-spacing: 0.19em;
+            text-transform: uppercase;
         }
 
-        .container {
-            text-align: center;
-            max-width: 600px;
-            padding: 40px;
-            animation: fadeInUp 1s ease-out;
+        .eyebrow::before {
+            width: 28px;
+            height: 1px;
+            background: currentColor;
+            content: "";
         }
 
-        .header {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+        h1,
+        h2,
+        p {
+            margin-top: 0;
         }
 
         h1 {
-            font-size: 2.5rem;
-            color: #d81b60;
-            margin-bottom: 20px;
-            font-weight: 300;
-            letter-spacing: 1px;
+            max-width: 560px;
+            margin-bottom: 22px;
+            font-family: var(--serif);
+            font-size: clamp(54px, 7.1vw, 88px);
+            font-weight: 400;
+            letter-spacing: -0.065em;
+            line-height: 0.99;
         }
 
-        p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 40px;
-            line-height: 1.6;
+        h1 em {
+            color: var(--berry);
+            font-weight: 400;
         }
 
-        .btn {
-            padding: 18px 50px;
-            font-size: 1.1rem;
-            background: linear-gradient(135deg, #ff69b4, #d81b60);
+        .hero-description {
+            max-width: 420px;
+            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .primary-link {
+            display: inline-flex;
+            min-height: 50px;
+            align-items: center;
+            gap: 14px;
+            padding: 0 21px;
+            border: 1px solid var(--berry);
+            border-radius: 2px;
+            background: var(--berry);
             color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(216, 27, 96, 0.3);
+            font-size: 13px;
             text-decoration: none;
-            display: inline-block;
+            transition: background 180ms ease, color 180ms ease, transform 180ms ease;
         }
 
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(216, 27, 96, 0.4);
-        }
-
-        .btn:active {
+        .primary-link:hover {
             transform: translateY(-2px);
+            background: var(--berry-dark);
         }
 
-        .decorative-hearts {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: -1;
+        .primary-link span {
+            font-size: 17px;
         }
 
-        .heart {
+        .hero-footnote {
+            margin: 29px 0 0;
+            color: #95868b;
+            font-family: var(--serif);
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .bouquet-wrap {
+            position: relative;
+            display: grid;
+            min-height: 550px;
+            place-items: center;
+            overflow: hidden;
+            border-radius: 48% 48% 44% 44% / 41% 41% 48% 48%;
+            background:
+                radial-gradient(ellipse at 51% 40%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 67%),
+                #f3e8df;
+        }
+
+        .bouquet-wrap::before,
+        .bouquet-wrap::after {
             position: absolute;
-            font-size: 2rem;
-            opacity: 0.3;
-            animation: float-heart 8s infinite ease-in-out;
+            z-index: 0;
+            width: 1px;
+            height: 78%;
+            background: rgba(142, 60, 90, 0.09);
+            content: "";
+            transform: rotate(25deg);
         }
 
-        @keyframes float-heart {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 0;
+        .bouquet-wrap::after {
+            transform: rotate(-25deg);
+        }
+
+        .bouquet-art {
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: min(100%, 570px);
+            height: auto;
+            overflow: visible;
+        }
+
+        .botanical-label {
+            position: absolute;
+            z-index: 2;
+            right: 6%;
+            bottom: 22%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            border: 1px solid rgba(233, 221, 211, 0.9);
+            background: rgba(255, 253, 250, 0.88);
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 13px;
+            font-style: italic;
+            box-shadow: 0 8px 24px rgba(70, 46, 53, 0.06);
+        }
+
+        .botanical-label span {
+            color: var(--berry);
+            font-size: 18px;
+        }
+
+        .letter-section {
+            padding-block: 32px 106px;
+            scroll-margin-top: 28px;
+        }
+
+        .section-heading {
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        .section-heading .eyebrow {
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .section-heading .eyebrow::after {
+            width: 28px;
+            height: 1px;
+            background: currentColor;
+            content: "";
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 400;
+            letter-spacing: -0.04em;
+        }
+
+        .section-subtitle {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .letter-card {
+            position: relative;
+            width: min(760px, 100%);
+            margin-inline: auto;
+            padding: clamp(28px, 6vw, 62px) clamp(24px, 7vw, 76px) 42px;
+            border: 1px solid #eee4db;
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent 0,
+                    transparent 37px,
+                    rgba(206, 188, 179, 0.25) 38px,
+                    transparent 39px
+                ),
+                var(--white);
+            box-shadow: 0 18px 55px rgba(78, 49, 54, 0.065);
+        }
+
+        .letter-card::before {
+            position: absolute;
+            top: 19px;
+            right: 22px;
+            color: #c58c9d;
+            content: "✳";
+            font-size: 21px;
+        }
+
+        .letter-date {
+            margin-bottom: 26px;
+            color: #9a858c;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-align: right;
+            text-transform: uppercase;
+        }
+
+        .letter-greeting,
+        .letter-copy,
+        .letter-signoff {
+            font-family: var(--serif);
+            font-size: 17px;
+            line-height: 2.25;
+        }
+
+        .letter-greeting {
+            margin-bottom: 12px;
+            color: var(--berry-dark);
+            font-size: 19px;
+        }
+
+        .letter-copy {
+            min-height: 180px;
+            margin-bottom: 20px;
+            color: #50434a;
+            white-space: pre-line;
+        }
+
+        .letter-signoff {
+            margin-bottom: 0;
+            color: var(--berry-dark);
+            line-height: 1.7;
+        }
+
+        .letter-signoff span {
+            display: block;
+            margin-top: 5px;
+            font-size: 24px;
+            font-style: italic;
+        }
+
+        .letter-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .text-button {
+            display: inline-flex;
+            min-height: 42px;
+            align-items: center;
+            gap: 9px;
+            padding: 0 4px;
+            border: 0;
+            background: transparent;
+            color: var(--berry);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .text-button:hover {
+            color: var(--berry-dark);
+        }
+
+        .letter-editor {
+            display: grid;
+            gap: 15px;
+            width: min(760px, 100%);
+            margin: 18px auto 0;
+            padding: 24px;
+            border: 1px solid var(--line);
+            background: rgba(255, 253, 250, 0.72);
+        }
+
+        .letter-editor[hidden] {
+            display: none;
+        }
+
+        .field {
+            display: grid;
+            gap: 7px;
+        }
+
+        .field label {
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 650;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .field input,
+        .field textarea {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid var(--line);
+            border-radius: 0;
+            outline: none;
+            background: var(--white);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 15px;
+        }
+
+        .field textarea {
+            min-height: 132px;
+            resize: vertical;
+            line-height: 1.65;
+        }
+
+        .field input:focus,
+        .field textarea:focus {
+            border-color: var(--berry);
+            box-shadow: 0 0 0 2px rgba(142, 60, 90, 0.1);
+        }
+
+        .editor-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding-top: 3px;
+        }
+
+        .editor-button {
+            min-height: 41px;
+            padding: 0 16px;
+            border: 1px solid var(--berry);
+            background: transparent;
+            color: var(--berry);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .editor-button.primary {
+            background: var(--berry);
+            color: white;
+        }
+
+        .editor-button:hover {
+            border-color: var(--berry-dark);
+            background: var(--berry-dark);
+            color: white;
+        }
+
+        .botanical-note {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 9px 24px;
+            padding-block: 22px 26px;
+            border-top: 1px solid var(--line);
+            color: #8a797f;
+            font-family: var(--serif);
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        .botanical-note strong {
+            color: var(--berry-dark);
+            font-weight: 400;
+        }
+
+        footer {
+            padding-block: 23px 30px;
+            border-top: 1px solid var(--line);
+            color: #94858a;
+            font-family: var(--serif);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--berry);
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 760px) {
+            .page-shell {
+                width: min(100% - 40px, 540px);
             }
-            10% {
-                opacity: 0.3;
+
+            .topbar {
+                min-height: 72px;
             }
-            90% {
-                opacity: 0.3;
+
+            .topbar-note {
+                font-size: 10px;
+                letter-spacing: 0.1em;
             }
-            100% {
-                transform: translateY(-100vh) scale(1);
-                opacity: 0;
+
+            .hero {
+                min-height: 0;
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding-block: 60px 52px;
+            }
+
+            .hero-copy {
+                padding-block: 0;
+                text-align: center;
+            }
+
+            .hero-copy .eyebrow {
+                justify-content: center;
+            }
+
+            h1 {
+                margin-inline: auto;
+                font-size: clamp(55px, 13vw, 78px);
+            }
+
+            .hero-description {
+                margin-inline: auto;
+                font-size: 15px;
+            }
+
+            .hero-footnote {
+                margin-top: 19px;
+            }
+
+            .bouquet-wrap {
+                width: min(100%, 450px);
+                min-height: 0;
+                aspect-ratio: 1 / 1.02;
+                margin-inline: auto;
+            }
+
+            .botanical-label {
+                right: 5%;
+                bottom: 17%;
+                padding: 9px 11px;
+                font-size: 11px;
+            }
+
+            .letter-section {
+                padding-block: 22px 64px;
+            }
+
+            .letter-card {
+                padding-inline: 25px;
+            }
+
+            .letter-greeting,
+            .letter-copy,
+            .letter-signoff {
+                font-size: 16px;
+                line-height: 2;
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        @media (max-width: 390px) {
+            .page-shell {
+                width: calc(100% - 32px);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .wordmark {
+                font-size: 16px;
+            }
+
+            .topbar-note {
+                font-size: 9px;
+            }
+
+            .letter-card {
+                padding-inline: 20px;
+            }
+
+            .letter-editor {
+                padding: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <div class="decorative-hearts" id="decorativeHearts"></div>
+    <header class="topbar page-shell">
+        <a class="wordmark" href="#home" aria-label="Five Months of Love home">
+            <span class="wordmark-flower" aria-hidden="true">✿</span>
+            Five Months of Love
+        </a>
+        <span class="topbar-note">A little love note · Our fifth monthsary</span>
+    </header>
 
-    <div class="container">
-        <div class="header">💕</div>
-        <h1>3rd Monthsary</h1>
-        <p>
-            A special gift made with love 💝<br>
-            Click the button below to begin your surprise
-        </p>
-        <a href="question.html" class="btn">Open Surprise 🎁</a>
-    </div>
+    <main id="home">
+        <section class="hero page-shell" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow">Happy 5 months of love</p>
+                <h1 id="hero-title">Five months<br>of <em>love.</em></h1>
+                <p class="hero-description">
+                    Five months of little moments that mean the world. I made you a bouquet
+                    that will never wilt, and a few words I hope you’ll keep.
+                </p>
+                <a class="primary-link" href="#letter">Read your letter <span aria-hidden="true">↘</span></a>
+                <p class="hero-footnote">Made with all my heart, just for you.</p>
+            </div>
+
+            <div class="bouquet-wrap">
+                <svg class="bouquet-art" viewBox="0 0 560 570" role="img" aria-labelledby="bouquet-title bouquet-description" xmlns="http://www.w3.org/2000/svg">
+                    <title id="bouquet-title">A hand-drawn bouquet of lantana and little ironweed</title>
+                    <desc id="bouquet-description">Pink, apricot, and yellow lantana clusters meet violet little ironweed above a softly wrapped bouquet with sage-green leaves.</desc>
+                    <defs>
+                        <g id="lantana-bloom">
+                            <ellipse cx="0" cy="-4.6" rx="2.5" ry="4" fill="currentColor"/>
+                            <ellipse cx="4.4" cy="-1.4" rx="2.5" ry="4" fill="currentColor" transform="rotate(72 4.4 -1.4)"/>
+                            <ellipse cx="2.7" cy="3.7" rx="2.5" ry="4" fill="currentColor" transform="rotate(144 2.7 3.7)"/>
+                            <ellipse cx="-2.7" cy="3.7" rx="2.5" ry="4" fill="currentColor" transform="rotate(216 -2.7 3.7)"/>
+                            <ellipse cx="-4.4" cy="-1.4" rx="2.5" ry="4" fill="currentColor" transform="rotate(288 -4.4 -1.4)"/>
+                            <circle cx="0" cy="0" r="2.1" fill="#f1ad57"/>
+                            <circle cx="0" cy="0" r=".9" fill="#fff0c3"/>
+                        </g>
+                        <g id="ironweed-floret">
+                            <path d="M0 7C-4 4-5-3-2-9C-1-12 2-13 4-8C6-2 3 4 0 7Z" fill="#8ba473"/>
+                            <path d="M-2-4C-5-8-3-12 0-14C3-11 3-8 1-4Z" fill="currentColor"/>
+                            <path d="M1-5C1-9 3-12 6-12C7-9 5-6 2-3Z" fill="#a687b8"/>
+                            <circle cx="0" cy="-7" r="1.3" fill="#f4e4c2"/>
+                        </g>
+                    </defs>
+
+                    <g fill="none" stroke="#71886a" stroke-linecap="round" stroke-width="3">
+                        <path d="M278 544C263 418 184 249 134 144"/>
+                        <path d="M284 544C296 410 368 234 419 121"/>
+                        <path d="M278 544C278 405 275 214 280 99"/>
+                        <path d="M278 544C248 407 230 243 223 133"/>
+                        <path d="M285 544C320 409 337 246 344 151"/>
+                    </g>
+
+                    <g transform="translate(280 300) scale(.76) translate(-280 -300)" fill="#96a88a" stroke="#71866a" stroke-linejoin="round" stroke-width="1.3">
+                        <path d="M190 332C145 329 123 300 124 269C159 273 186 292 190 332Z"/>
+                        <path d="M199 345C174 305 177 273 199 254C220 282 220 316 199 345Z"/>
+                        <path d="M229 365C193 355 178 331 183 305C214 308 235 331 229 365Z"/>
+                        <path d="M231 330C204 301 203 271 222 251C246 273 251 304 231 330Z"/>
+                        <path d="M257 368C226 342 223 313 238 290C267 310 277 339 257 368Z"/>
+                        <path d="M257 311C235 279 239 249 260 233C281 261 281 290 257 311Z"/>
+                        <path d="M278 359C258 328 265 300 289 282C306 312 300 343 278 359Z"/>
+                        <path d="M294 332C290 295 309 272 335 266C341 299 325 325 294 332Z"/>
+                        <path d="M311 366C307 333 326 311 353 309C354 339 338 361 311 366Z"/>
+                        <path d="M331 315C331 281 351 261 377 260C375 291 358 311 331 315Z"/>
+                        <path d="M348 343C355 312 380 297 406 302C398 331 376 347 348 343Z"/>
+                        <path d="M365 301C378 271 406 261 430 272C414 299 389 310 365 301Z"/>
+                        <path d="M219 396C187 379 177 352 189 329C217 346 230 371 219 396Z"/>
+                        <path d="M320 399C321 369 341 351 367 352C363 379 345 398 320 399Z"/>
+                    </g>
+
+                    <g fill="none" stroke="#a27669" stroke-linecap="round" stroke-width="1.7">
+                        <path d="M134 144c-11-26-24-39-39-48"/>
+                        <path d="M134 144c-1-28 6-46 18-60"/>
+                        <path d="M419 121c-7-25-6-44 1-59"/>
+                        <path d="M419 121c15-23 31-35 50-40"/>
+                        <path d="M280 99c-12-25-13-44-7-62"/>
+                        <path d="M280 99c12-25 27-38 46-46"/>
+                        <path d="M223 133c-20-21-38-29-58-30"/>
+                        <path d="M344 151c15-24 31-36 50-41"/>
+                    </g>
+
+                    <g style="color:#e99cab">
+                        <use href="#lantana-bloom" x="95" y="94"/>
+                        <use href="#lantana-bloom" x="108" y="84"/>
+                        <use href="#lantana-bloom" x="120" y="93"/>
+                        <use href="#lantana-bloom" x="105" y="105"/>
+                        <use href="#lantana-bloom" x="122" y="109"/>
+                        <use href="#lantana-bloom" x="91" y="111"/>
+                    </g>
+                    <g style="color:#edacc0">
+                        <use href="#lantana-bloom" x="81" y="97"/>
+                        <use href="#lantana-bloom" x="96" y="82"/>
+                        <use href="#lantana-bloom" x="116" y="88"/>
+                    </g>
+                    <g style="color:#f1c66f">
+                        <use href="#lantana-bloom" x="148" y="102"/>
+                        <use href="#lantana-bloom" x="160" y="91"/>
+                        <use href="#lantana-bloom" x="174" y="98"/>
+                        <use href="#lantana-bloom" x="155" y="111"/>
+                        <use href="#lantana-bloom" x="171" y="114"/>
+                        <use href="#lantana-bloom" x="141" y="115"/>
+                    </g>
+                    <g style="color:#f4d58d">
+                        <use href="#lantana-bloom" x="143" y="92"/>
+                        <use href="#lantana-bloom" x="165" y="105"/>
+                    </g>
+                    <g style="color:#e8a0b0">
+                        <use href="#lantana-bloom" x="196" y="115"/>
+                        <use href="#lantana-bloom" x="207" y="104"/>
+                        <use href="#lantana-bloom" x="221" y="111"/>
+                        <use href="#lantana-bloom" x="200" y="125"/>
+                        <use href="#lantana-bloom" x="217" y="128"/>
+                        <use href="#lantana-bloom" x="188" y="128"/>
+                    </g>
+                    <g style="color:#f4c66f">
+                        <use href="#lantana-bloom" x="194" y="105"/>
+                        <use href="#lantana-bloom" x="212" y="116"/>
+                    </g>
+
+                    <g style="color:#785697">
+                        <use href="#ironweed-floret" x="251" y="61"/>
+                        <use href="#ironweed-floret" x="263" y="54"/>
+                        <use href="#ironweed-floret" x="275" y="60"/>
+                        <use href="#ironweed-floret" x="287" y="53"/>
+                        <use href="#ironweed-floret" x="300" y="60"/>
+                        <use href="#ironweed-floret" x="257" y="72"/>
+                        <use href="#ironweed-floret" x="270" y="69"/>
+                        <use href="#ironweed-floret" x="284" y="72"/>
+                        <use href="#ironweed-floret" x="296" y="70"/>
+                        <use href="#ironweed-floret" x="243" y="76"/>
+                        <use href="#ironweed-floret" x="308" y="74"/>
+                        <use href="#ironweed-floret" x="264" y="84"/>
+                        <use href="#ironweed-floret" x="281" y="87"/>
+                        <use href="#ironweed-floret" x="299" y="84"/>
+                    </g>
+                    <g style="color:#9874ad">
+                        <use href="#ironweed-floret" x="255" y="57"/>
+                        <use href="#ironweed-floret" x="278" y="53"/>
+                        <use href="#ironweed-floret" x="291" y="61"/>
+                        <use href="#ironweed-floret" x="250" y="68"/>
+                        <use href="#ironweed-floret" x="278" y="75"/>
+                        <use href="#ironweed-floret" x="305" y="64"/>
+                    </g>
+                    <g style="color:#694784">
+                        <use href="#ironweed-floret" x="414" y="83"/>
+                        <use href="#ironweed-floret" x="427" y="75"/>
+                        <use href="#ironweed-floret" x="440" y="81"/>
+                        <use href="#ironweed-floret" x="452" y="76"/>
+                        <use href="#ironweed-floret" x="419" y="95"/>
+                        <use href="#ironweed-floret" x="433" y="91"/>
+                        <use href="#ironweed-floret" x="446" y="96"/>
+                        <use href="#ironweed-floret" x="458" y="90"/>
+                        <use href="#ironweed-floret" x="426" y="105"/>
+                        <use href="#ironweed-floret" x="440" y="108"/>
+                        <use href="#ironweed-floret" x="452" y="104"/>
+                    </g>
+                    <g style="color:#9371a8">
+                        <use href="#ironweed-floret" x="420" y="80"/>
+                        <use href="#ironweed-floret" x="440" y="88"/>
+                        <use href="#ironweed-floret" x="454" y="82"/>
+                        <use href="#ironweed-floret" x="433" y="100"/>
+                    </g>
+                    <g style="color:#805a9b">
+                        <use href="#ironweed-floret" x="356" y="112"/>
+                        <use href="#ironweed-floret" x="369" y="104"/>
+                        <use href="#ironweed-floret" x="382" y="109"/>
+                        <use href="#ironweed-floret" x="395" y="102"/>
+                        <use href="#ironweed-floret" x="360" y="124"/>
+                        <use href="#ironweed-floret" x="374" y="120"/>
+                        <use href="#ironweed-floret" x="388" y="125"/>
+                        <use href="#ironweed-floret" x="378" y="135"/>
+                    </g>
+                    <g style="color:#a381b4">
+                        <use href="#ironweed-floret" x="363" y="108"/>
+                        <use href="#ironweed-floret" x="389" y="113"/>
+                        <use href="#ironweed-floret" x="374" y="130"/>
+                    </g>
+
+                    <g>
+                        <path d="M265 451C256 443 250 447 252 455C254 462 263 465 276 459C265 470 265 479 270 480C275 481 279 469 280 460C282 471 286 481 291 479C297 477 294 468 284 459C298 465 306 461 308 454C310 447 301 443 288 451C284 453 282 456 280 458C277 455 272 452 265 451Z" fill="#d98c9b"/>
+                        <path d="M264 457Q280 463 296 457L294 464Q280 469 266 464Z" fill="#b9687e"/>
+                        <circle cx="280" cy="459" r="2.6" fill="#f7d9ac"/>
+                    </g>
+                </svg>
+                <div class="botanical-label"><span aria-hidden="true">✿</span> Picked with love, just for you</div>
+            </div>
+        </section>
+
+        <section class="letter-section page-shell" id="letter" aria-labelledby="letter-title">
+            <div class="section-heading">
+                <p class="eyebrow">A few words from me to you</p>
+                <h2 id="letter-title">A letter for my babiii</h2>
+                <p class="section-subtitle">Five months with you, and every day is another reason to say I love you.</p>
+            </div>
+
+            <article class="letter-card" aria-label="Monthsary love letter">
+                <p class="letter-date">Happy five months of love</p>
+                <p class="letter-greeting" id="letter-greeting">Dear babiii ko,</p>
+                <p class="letter-copy" id="letter-copy">Happy 5 months of love and away babiii ko mag sosorry muna ulit ako babiii sa mga nagawa at nasabi ko sayo nung mga nakaraang araw ayoko na ulitin yun babii tapos ikaw makulit kapa din hanggang ngayon ang sabi ko sayo makinig kana sakin at wag ka nang makulit pero ambilis lang babii 5 months
+
+thank you sa lahat lahat babiii thank you for making ordinary days feels like worth remembering sobrang grateful ko sa lahat ng binibigay at pinaparamdam mo sakin madami pa tayong gagawing memories together I love you alwayss mahal ko mhala na mahal kita palagi</p>
+                <p class="letter-signoff">All my love,<span id="letter-sender">Chano ♡</span></p>
+            </article>
+
+            <div class="letter-controls">
+                <button class="text-button" id="edit-letter-button" type="button" aria-expanded="false" aria-controls="letter-editor">
+                    <span aria-hidden="true">✎</span> Make this letter yours
+                </button>
+            </div>
+
+            <form class="letter-editor" id="letter-editor" hidden>
+                <div class="field">
+                    <label for="recipient-input">Write their name</label>
+                    <input id="recipient-input" name="recipient" maxlength="60" value="babiii ko" required>
+                </div>
+                <div class="field">
+                    <label for="message-input">Your letter</label>
+                    <textarea id="message-input" name="message" maxlength="1200" required>Happy 5 months of love and away babiii ko mag sosorry muna ulit ako babiii sa mga nagawa at nasabi ko sayo nung mga nakaraang araw ayoko na ulitin yun babii tapos ikaw makulit kapa din hanggang ngayon ang sabi ko sayo makinig kana sakin at wag ka nang makulit pero ambilis lang babii 5 months
+
+thank you sa lahat lahat babiii thank you for making ordinary days feels like worth remembering sobrang grateful ko sa lahat ng binibigay at pinaparamdam mo sakin madami pa tayong gagawing memories together I love you alwayss mahal ko mhala na mahal kita palagi</textarea>
+                </div>
+                <div class="field">
+                    <label for="sender-input">Sign your name</label>
+                    <input id="sender-input" name="sender" maxlength="60" value="Chano ♡" required>
+                </div>
+                <div class="editor-actions">
+                    <button class="editor-button" id="cancel-edit-button" type="button">Cancel</button>
+                    <button class="editor-button primary" type="submit">Save letter</button>
+                </div>
+            </form>
+        </section>
+
+        <aside class="botanical-note page-shell" aria-label="Flowers in the bouquet">
+            <span><strong>Lantana</strong> · <i>Lantana camara</i></span>
+            <span aria-hidden="true">✳</span>
+            <span><strong>Little ironweed</strong> · <i>Cyanthillium cinereum</i></span>
+        </aside>
+    </main>
+
+    <footer class="page-shell">Five months of love, and many more memories to come. ♡</footer>
 
     <script>
-        // Generate floating hearts
-        function generateFloatingHearts() {
-            const container = document.getElementById('decorativeHearts');
-            const heartEmojis = ['💕', '💗', '💖', '💝', '💓'];
+        const editor = document.getElementById("letter-editor");
+        const editButton = document.getElementById("edit-letter-button");
+        const greeting = document.getElementById("letter-greeting");
+        const letterCopy = document.getElementById("letter-copy");
+        const sender = document.getElementById("letter-sender");
+        const recipientInput = document.getElementById("recipient-input");
+        const messageInput = document.getElementById("message-input");
+        const senderInput = document.getElementById("sender-input");
+        const cancelButton = document.getElementById("cancel-edit-button");
+        const editableFields = [recipientInput, messageInput, senderInput];
 
-            for (let i = 0; i < 15; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDelay = Math.random() * 8 + 's';
-                heart.style.animationDuration = (8 + Math.random() * 4) + 's';
-                container.appendChild(heart);
-            }
+        editableFields.forEach(function (field) {
+            field.addEventListener("input", function () {
+                field.setCustomValidity("");
+            });
+        });
+
+        function openEditor() {
+            recipientInput.value = greeting.textContent.replace(/^Dear\s+|\s*,$/g, "");
+            messageInput.value = letterCopy.textContent;
+            senderInput.value = sender.textContent;
+            editor.hidden = false;
+            editButton.setAttribute("aria-expanded", "true");
+            editButton.hidden = true;
+            recipientInput.focus();
         }
 
-        generateFloatingHearts();
+        function closeEditor() {
+            editor.hidden = true;
+            editButton.hidden = false;
+            editButton.setAttribute("aria-expanded", "false");
+            editButton.focus();
+        }
+
+        editButton.addEventListener("click", openEditor);
+        cancelButton.addEventListener("click", closeEditor);
+
+        editor.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const recipient = recipientInput.value.trim();
+            const message = messageInput.value.trim();
+            const signature = senderInput.value.trim();
+
+            const values = [
+                [recipientInput, recipient, "their name"],
+                [messageInput, message, "your letter"],
+                [senderInput, signature, "your name"]
+            ];
+
+            values.forEach(function ([field, value, label]) {
+                field.setCustomValidity(value ? "" : `Please enter ${label}.`);
+            });
+
+            if (values.some(function ([, value]) { return !value; })) {
+                editor.reportValidity();
+                return;
+            }
+
+            greeting.textContent = `Dear ${recipient},`;
+            letterCopy.textContent = message;
+            sender.textContent = signature;
+            closeEditor();
+        });
     </script>
 </body>
 </html>
